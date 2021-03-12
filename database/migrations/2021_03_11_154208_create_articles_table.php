@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('post');
+            $table->longText('post');
             $table->string('subject');
             $table->string('image')->default('notImagem.png');
             $table->bigInteger('userId')->unsigned();

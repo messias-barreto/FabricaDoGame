@@ -122,7 +122,6 @@
                     @if(Auth::user()->level >= 2)
                       <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
                     @else
-                    <li class="nav-item">
                       <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
@@ -132,7 +131,6 @@
                             {{ __('Sair') }}
                         </x-jet-dropdown-link>
                     </form>
-                    </li>
                     @endif
                   @else
                       <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>

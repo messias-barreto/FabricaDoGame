@@ -22,7 +22,7 @@ class ArticleController extends Controller
     }
 
     public function favorite(){
-        $articles = Article::limit(3)->get();
+        $articles = Article::latest()->limit(3)->get();
         return view('welcome', compact('articles'));
     }
 
