@@ -21,11 +21,11 @@
             }
 
             section{
-              margin-bottom: 30px;
+              margin-top: 30px;
             }
 
-            article{
-              margin: 70px 0px -30px 0px;
+            article {
+              margin: 50px 0px -30px 0px;
             }
 
             article a:link{
@@ -43,13 +43,41 @@
               padding: 10px 0px 10px 20px;
             }
 
+            .artigo{
+              background-color: #FFF5EE;
+              border: 1px solid rgb(48, 28, 5);
+              height: 500px;
+              margin-bottom: 25px;
+            }
+
+            .artigo:hover{
+              background-color: #FFF5EE;
+              border: 2px solid #000000;
+              text-decoration: none;
+              color: #000000;
+            }
+
+            .artigo h3 {
+              font-size: 25px;
+              font-family: fantasy;
+              text-align: center;
+              color: #4F4F4F;
+            }
+
+            .artigo p {
+              max-width: 300ch;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              font-size: 16px;
+            }
+
             .logo{
               width: 70px;
             }
 
             .carousel{ 
               flex: 1;
-              border: 1px solid #000000;
             }
 
             .carousel img {
@@ -63,9 +91,8 @@
             }
 
             .container img {
-              width: 100px;
-              height: 100px;
-              border-radius: 50%;
+              width: 100%;
+              height: 400px;
               border: 2px solid #000000;
               float: left;
             }

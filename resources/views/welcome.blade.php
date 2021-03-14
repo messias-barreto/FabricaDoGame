@@ -1,34 +1,24 @@
 <style>
-  .artigo{
-    background-color: rgb(228, 238, 237);
-    border: 2px solid rgb(48, 28, 5);
-    height: 200px;
+  .maisArtigos {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-family: fantasy;
+    color: #363636;
   }
 
-  .artigo:hover{
-    background-color: rgb(240, 242, 245);
-    border: 3px solid #000000;
-  }
-    
-
-   .artigos p {
-    max-width: 300ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 16px;
+  .maisArtigos a:link{
+    text-decoration: none;
+    color: #363636;
   }
 
-  .artigos h3 {
-    font-size: 20px;
-    font-family: sans-serif;
-  }
 </style>
 
 @extends('layouts.normal')
 
 @section('content')
-<section class="carousel-top">
+<header class="carousel-top">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -61,29 +51,33 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</section>
+</header>
 
 <section class="container">
   <header class="titulo-artigo">
     <span><h2>Ultimos Artigos</h2><span>
   </header>
+  <hr />
 
   <div class="row">
     @foreach ($articles as $art)
-    <article class="col-6 artigos">
+    <article class="col-4 artigos">
         <a href="{{ url('article/'.$art->id) }}">
           <div class="artigo card">
-            <img src="{{ asset('img/icone.png') }}" rel="stylesheet">
+            <img src="{{ asset("img/article/{$art->image}") }}" rel="stylesheet">
             <div class="card-body">
               <h3 class="card-title">{{ $art->title }}</h3>
-              <hr>
-              <p class="card-text">{{ $art->post }}</p>
             </div>
           </div>  
         </a>
-    </article>
- 
-    @endforeach
+
+      </article>
+      
+      @endforeach
+  </div>
+
+  <div class="maisArtigos">
+      <p><a href="{{ url('/articles') }}">Mais Artigos</a></p>
   </div>
 
 </section>

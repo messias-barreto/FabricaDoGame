@@ -14,11 +14,11 @@
         margin-top: 20px;
     }
 
-    .artigo{
+    .artigoCompleto{
         width: 1000px;
         margin-left: 120px;
         margin-top: -50px;
-        text-align: center;
+        text-align: justify;
     }
 
     .comentario {
@@ -44,15 +44,18 @@
 @extends('layouts.normal')
 
 @section('content')
-    <section>
+
+  
+
+  <section>
         <header class="titulo">
             <h1>{{ $article[0]->title }}</h1>
-            <img src={{ asset('img/notImage.png') }}>
+            <img src="{{ asset("img/article/{$article[0]->image}") }}">
         </header>
 
         <article>
-            <div class="artigo">
-                <p>{{ $article[0]->post }}</p>
+            <div class="artigoCompleto">
+                <p>{!! $article[0]->post !!}</p>
             </div>
         </article>
     </section>

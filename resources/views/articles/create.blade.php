@@ -1,7 +1,24 @@
+<!-- Main Quill library -->
+<script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+<!-- Theme included stylesheets -->
+<link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+
+<!-- Core build with no theme, formatting, non-essential modules -->
+<link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
+<script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>
+
+
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
 @extends('layouts.normal')
 @section('content')
     <section class="container-fluid">
-        <form action="{{ route('addArticle') }}" method="POST">
+        <form action="{{ route('addArticle') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="userId" name="userId" value={{ Auth::user()->id }} >
             <div class="form-row">
@@ -23,19 +40,44 @@
             </div>
 
             <br />
-        <!--
+        
             <div class="custom-file col-4">
                 <input type="file" class="custom-file-input" id="image" name="image">
                 <label class="custom-file-label" for="image">Selecione a Imagem do Artigo</label>
             </div>
-        -->
+        
             <br />
 
             <div class="form-group">
-                <textarea class="form-control" id="post" name="post" rows="12">Digite O Artigo Aqui</textarea>
+                <div id="quilPost" rows="12"></div>
+                <input type="hidden" id="post" name="post">
             </div>
             <hr>
             <input class="btn" type="submit" value="Publicar Artigo">
         </form>
     </section>
+
+    <script>
+        var options = [
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block'],
+            [{'script': 'sub'}, {'script': 'super'}],
+            [{'direction': 'rtl'}],
+            [{'size': ['small', false, 'large', 'huge']}],
+            ['link', 'image']
+        ]
+
+        var quill = new Quill('#quilPost', {
+            modules: {
+                toolbar: options
+            },
+
+            placeholder: 'Digite a Artigo Aqui',
+            theme: 'snow'
+        });
+
+        quill.on('text-change', function() {
+            document.getElementById("post").value = quill.root.innerHTML;
+        });
+      </script>
 @stop

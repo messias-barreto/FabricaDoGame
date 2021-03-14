@@ -45,30 +45,31 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        */
+
+        if($request->hasFile('image')){
+            // Get filename with the extension
+                $filenameWithExt = $request->file('image')->getClientOriginalName();
+            // Get just filename
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+                $extension = $request->file('image')->getClientOriginalExtension();
+            // Filename to store
+                $image = $filename.'_'.time().'.'.$extension;
+            // Upload Image
+                //$path = $request->file('image')->storeAs('img', $image);
+                $request->image->move(public_path('img/article'), $image);
+        } else { $image = 'notImage.png'; }
+
+        //save in database
         $article = new Article([
             'title' => $request->title,
             'subject' => $request->subject,
-            //'image' => $request->image,
+            'image' => $image,
             'post' => $request->post,
             'userId' => $request->userId
         ]);
-
-        //$image = $request->image;
-
-        //dd($image);
         
-        //$imageName = time().'.'.$request->image->extension();
-        //$upload = $request->image->storeAs('img', $imageName, 's3');
-        
-        //$article->image = $upload;
-
         $article->save();
-        //return redirect()->action([ArticleController::class, '/']);
         return redirect('/dashboard');
     } 
 
