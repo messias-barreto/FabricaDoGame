@@ -14,11 +14,123 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
-        <link href="{{ asset('css/normal.css') }}" rel="stylesheet" type="text/css" >
+
+        <style>
+            body {
+                font-family: 'Nunito', sans-serif;
+                background-color: #F2FAD9;
+            }
+
+            section{
+              margin-top: 30px;
+            }
+
+            article a:link{
+              text-decoration: none;
+            }
+
+            article h2 {
+              font-family: fantasy;
+              font-size: 25px;
+            }
+
+            article p {
+              font-family: serif;
+              font-size: 20px;
+              padding: 10px 0px 10px 20px;
+            }
+
+            article img {
+              height: 300px;
+              border: 2px solid #000000;
+              float: left;
+            }
+
+            .artigo {
+              background-color: #FFF5EE;
+              border: 1px solid rgb(48, 28, 5);
+              height: 450px;
+              margin-bottom: 25px;
+            }
+
+            .artigo:hover{
+              background-color: #FFF5EE;
+              border: 2px solid #000000;
+              text-decoration: none;
+              color: #000000;
+            }
+
+            .artigo h3 {
+              font-size: 25px;
+              font-family: fantasy;
+              text-align: center;
+              color: #4F4F4F;
+            }
+
+            .artigo p {
+              max-width: 300ch;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              font-size: 16px;
+            }
+
+            .ultimos-artigos img {
+              height: 250px;
+            }
+
+            .ultimos-artigos h3 {
+              font-size: 20px;
+            }
+
+            .logo{
+              width: 70px;
+            }
+
+            .carousel{ 
+              flex: 1;
+            }
+
+            .carousel img {
+              width: 100%;
+              height: 600px;
+            }
+
+            .carousel span {
+              width: 100%;
+              height: 50px;
+            }
+
+            .container {
+              flex-direction: row;
+              width: 100%;
+            }
+
+            .titulo-artigo h2 {
+              width: 450px;
+              font-size: 35px;
+              font-family: sans-serif;
+              margin-left: 55px;
+              align-items: center;
+            }
+
+            .titulo img {
+              display: block;
+              margin-left: auto;
+              margin-right: auto
+            }
+            .content-secundary{
+              background-color: #EDEFF2;
+            }
+
+            .hr {
+              margin-top: 10px;
+              margin-bottom: 20px;
+            }
+        </style>
     </head>
 
     <body class="antialiased">
-      
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#"><img class="logo" src="{{ asset('img/logoImage.png') }}" rel="stylesheet"></a>
@@ -43,19 +155,14 @@
               </nav>
         </header>
 
-        <div class="container main">
+        <div class="container">
           <div class="titulo">
             <img src="{{ asset('img/titulo.png') }}" class="img-fluid"/>
           </div>
           <hr>
-          <div class="row">
-            <div class="col-md-9 content-primary">
-              @yield('content')
-            </div>
-
-            <div class='col-md-3 content-secundary'>
-              @include('articles.secondarycontent')
-            </div>
+          
+          <div>
+            @yield('content')
           </div>
         </div>
       
@@ -86,9 +193,5 @@
               </div>
           @endif      
       </div>
-
-      <footer>
-          <p>Feito por Messias Gonzaga Barreto</p>
-      </footer>
     </body>
 </html>

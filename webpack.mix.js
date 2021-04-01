@@ -11,12 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.js('resources/js/quill.js', 'public/js')
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),
-    ]);
+    ])
+    .postCss('resources/css/showArticle.css', 'public/css')
+    .postCss('resources/css/normal.css', 'public/css');
 
 mix.copyDirectory('resources/img', 'public/img');    
 

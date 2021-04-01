@@ -1,0 +1,100 @@
+.titulo h1 {
+    text-align: center;
+    font-size: 35px;
+    font-family: fantasy;
+    color: #4F4F4F;
+}
+
+
+.titulo p {
+    text-align: center;
+    font-size: 16px;
+    font-family: serif;
+    color: #4F4F4F;
+}
+
+.titulo img {
+    width: 1000px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.artigoCompleto{
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.comentario {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.outrosComentarios {
+    margin-top: 30px;
+}
+
+.outrosComentarios img {
+    width: 55px;
+    margin-left: 20px;
+    border-radius: 50%;
+    border: 1px solid #4F4F4F;
+}
+
+.card{
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.card strong {
+    font-size: 18px;
+    font-family: serif;
+}
+
+@media screen and (min-width: 400px) {
+    iframe {
+        width: 300px;
+        height: 500px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    iframe {
+        width: 700px;
+        height: 500px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    iframe {
+        width: 900px;
+        height: 500px;
+    }
+}   
+
+.second-comment {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    font-size: 13px;
+    background-color: #FFFAFA;
+}
+
+.second-comment img {
+    width: 50px;
+    border-radius: 50%;
+    border: #4F4F4F 1px solid;
+    margin-left: 20px;
+}
+
+.second-comment strong {
+    font-size: 14px;
+}
+
+.second-comment textarea {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

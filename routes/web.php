@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\SecoundCommentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +22,19 @@ Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/article/{id}', [ArticleController::class, 'show']);
 
 Route::get('/cadarticle', [ArticleController::class, 'create']);
+Route::get('/configurearticle/{id}', [ArticleController::class, 'configurearticle']);
+
 Route::post('/cadarticle', [ArticleController::class, 'store'])->name('addArticle');
+
+Route::get('/updatearticle/{id}', [ArticleController::class, 'edit']);
+Route::put('/updatearticle/{id}', [ArticleController::class, 'update'])->name('updateArticle');
 
 Route::post('/cadcomment', [CommentController::class, 'store'])->name('addComment');
 
-//Route::resource('/artigos', [ArticleController::class]);
+Route::get('/secoundarycomment/comment', [SecoundCommentController::class, 'index']);
+Route::post('/cadsecoundarycomment', [SecoundCommentController::class, 'store'])->name('addSecoundaryComment');
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     if( Auth::user()->level >= 2)

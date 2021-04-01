@@ -1,5 +1,8 @@
 {
+    "/js/quill.js": "/js/quill.js",
     "/js/app.js": "/js/app.js",
+    "/css/normal.css": "/css/normal.css",
+    "/css/showArticle.css": "/css/showArticle.css",
     "/css/app.css": "/css/app.css",
     "/img/article.png": "/img/article.png",
     "/img/icone.png": "/img/icone.png",

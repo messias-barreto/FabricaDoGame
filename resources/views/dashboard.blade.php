@@ -16,16 +16,40 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="col-4 cards">     
-            <a href="{{ url('cadarticle') }}">   
-                <div class="card" style="width: 18rem;" id="card">
-                    <img class="card-img-top" src="{{asset('img/article.png')}}">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Criar um Novo Artigo</h5>
+    <div class="py-12 container">
+        <div class="row">
+            <div class="col-4 cards">     
+                <a href="{{ url('cadarticle') }}">   
+                    <div class="card" style="width: 18rem;" id="card">
+                        <img class="card-img-top" src="{{asset('img/article.png')}}">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Criar um Novo Artigo</h5>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
+
+            <div class="col-4 cards">     
+                <a href="{{ url('configurearticle', Auth::user()->id) }}">   
+                    <div class="card" style="width: 18rem;" id="card">
+                        <img class="card-img-top" src="{{asset('img/updateArticle.png')}}">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Atualizar um Artigo</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-4 cards">     
+                <a href="{{ url('cadarticle') }}">   
+                    <div class="card" style="width: 18rem;" id="card">
+                        <img class="card-img-top" src="{{asset('img/iconModUsers.png')}}">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Atualizar Usuários</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </x-app-layout>
