@@ -1,3 +1,5 @@
+<script src="https://kit.fontawesome.com/cd1980e5fa.js" crossorigin="anonymous"></script>
+
 <style>
     tr {
         font-size: 15px;
@@ -11,12 +13,17 @@
     }
 </style>
 
-@extends('layouts.normal')
+@extends('layouts.protected')
 @section('content')
         <div class="container">
-            <head>
-                <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
-            </head>
+          @if(session('success'))
+            <div class="row">
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong><i class="fas fa-check-circle"></i></strong> {{ session('success') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </div>
+          @endif
             
             <table class="table">
                 <thead class="thead-dark">

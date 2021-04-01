@@ -17,6 +17,16 @@
     </x-slot>
 
     <div class="py-12 container">
+        @if(session('success'))
+            <div class="row">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong><i class="fas fa-check-circle"></i></strong> {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        @endif
+        
+
         <div class="row">
             <div class="col-4 cards">     
                 <a href="{{ url('cadarticle') }}">   

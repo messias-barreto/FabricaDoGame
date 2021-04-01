@@ -86,7 +86,7 @@ class ArticleController extends Controller
         ]);
         
         $article->save();
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with('success', 'Artigo Adicionado Com Sucesso!!');
     } 
 
     /**
@@ -112,14 +112,10 @@ class ArticleController extends Controller
         ->where('comments.articleId', $id)
         ->get();
 
-        //dd($comments);
-
         $secoundComment = DB::table('secound_comments')
         ->join('users', 'users.id', '=', 'secound_comments.userId')
         ->select('secound_comments.commentId', 'secound_comments.comment','secound_comments.created_at', 'users.name')
         ->get();
-
-        //dd($secoundComment);
 
         $secondaryarticles = Article::latest()->limit(3)
         ->get();
@@ -132,9 +128,7 @@ class ArticleController extends Controller
 
     public function edit($id)
     {
-        //
-        $article = Article::where('id', '=', $id)
-        ->get();
+        $article = Article::where('id', '=', $id)->get();
         return view('articles.edit', compact('article'));
     }
 
@@ -147,7 +141,7 @@ class ArticleController extends Controller
         ]);
 
         Article::find($id)->update($request->all());
-        return redirect('articles.confarticle') ->with('success', 'Artigo Atualizado com Sucesso!!');
+        return redirect('/configurearticle/'. $request->userId) ->with('success', 'Artigo Atualizado com Sucesso!!');
     }
 
     /**
